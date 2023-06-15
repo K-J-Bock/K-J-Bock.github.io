@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Geräteerkennung und Weiterleitung</title>
+  <script type="text/javascript">
+    // Geräteerkennungsfunktion
+    function redirectBasedOnDevice() {
+      var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+      // Überprüfen, ob es sich um ein iOS-Gerät handelt
+      if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+        window.location.href = "https://apps.apple.com/de/app/bubble-balance/id6448781366";
+      }
+
+      // Überprüfen, ob es sich um ein Android-Gerät handelt
+      if (/android/i.test(userAgent)) {
+        window.location.href = "https://apps.apple.com/de/app/bubble-balance/id6448781366";
+      }
+    }
+
+    // Funktion für Desktop-Weiterleitungsauswahl
+    function redirectToLink(link) {
+      window.location.href = link;
+    }
+  </script>
+</head>
+<body onload="redirectBasedOnDevice()">
+  <h1>Geräteerkennung und Weiterleitung</h1>
+  <p>Bitte wählen Sie einen Link:</p>
+  <button onclick="redirectToLink('https://apps.apple.com/de/app/bubble-balance/id6448781366')">Link 1</button>
+  <button onclick="redirectToLink('Link2')">Link 2</button>
+</body>
+</html>
